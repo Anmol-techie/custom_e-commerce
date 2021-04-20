@@ -1,9 +1,24 @@
 import React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Container } from "react-bootstrap"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Homescreen from "./screens/Homescreen"
+import ProductScreen from "./screens/ProductScreen"
+
 const App = () => {
   return (
-    <>
-      <h1>welcome to ShopJam</h1>
-    </>
+    <Router>
+      <Header />
+      <main>
+        <Container>
+          <Route path="/" component={Homescreen} exact />
+          <Route path="/product/:id" component={ProductScreen} />
+        </Container>
+      </main>
+
+      <Footer />
+    </Router>
   )
 }
 
